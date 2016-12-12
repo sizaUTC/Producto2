@@ -1,0 +1,47 @@
+@(currentPage: com.avaje.ebean.PagedList[Computer], currentSortBy: String, currentOrder: String, currentFilter: String)
+
+
+        
+        <table border=2>
+           
+            <tbody>
+             <thead>
+                <tr>
+                    <td>Nombre del Computador </td>
+                    <td> Introduccion </td>
+                    <td> Descontinua </td>
+                    <td> Compania </td>
+                </tr>
+            </thead>
+
+                @for(platotip <- currentPage.getList) {
+                    <tr>
+                        <td><a>@platotip.nombre</a></td>
+                        <td>
+                            @if(platotip.descripcion == null) {
+                                <em>-</em>
+                            } else {
+                                @platotip.descripcion.format("dd MMM yyyy")
+                            }
+                        </td>
+                        <td>
+                            @if(platotip.peso == null) {
+                                <em>-</em>
+                            } else {
+                                @platotip.peso.format("dd MMM yyyy")
+                            }
+                        </td>
+                        <td>
+                            @if(platotip.cantidad == null) {
+                                <em>-</em>
+                            } else {
+                                @platotip.cantidad.cantidad
+                            }
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+            
